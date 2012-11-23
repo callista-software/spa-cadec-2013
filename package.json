@@ -1,0 +1,11 @@
+{
+    "name": "cadec-2013-spa",
+    "description": "Single Page App - Cadec 2013",
+    "version": "0.1.0",
+    "author": "",
+    "dependencies": {
+        "express" : "~3.0.3"
+        
+    },
+    "devDependencies": {}
+}

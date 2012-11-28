@@ -24,7 +24,7 @@ app.use(requestLogger);
 app.use(errorHandler);
 
 // Serve static resources
-app.use(Express.static(__dirname + '/public'));
+app.use(Express.static(__dirname + '/app'));
 
 // Declare our api
 api.start();

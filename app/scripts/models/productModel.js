@@ -1,10 +1,10 @@
 ydemoe.Models.ProductModel = Backbone.Model.extend({
 
 	defaults : {
-		'id'      : '',
-		'name'    : '',
-		'desc'    : '',
-		'inStock' : '0'
+		'id'          : '',
+		'name'        : '',
+		'description' : '',
+		'inStock'     : '0'
 	},
 
 	initialize : function (options) {

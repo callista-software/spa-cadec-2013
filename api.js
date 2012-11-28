@@ -10,8 +10,20 @@ var SpaApi = function(express_app) {
 SpaApi.prototype.start = function() {
     var that = this;
 
+    this.products = [{
+        'id' : 1,
+        'name' : 'Limefrukt',
+        'description' : 'Underbara limefrukter från sydamerika',
+        'inStock' : 2000
+    },{
+        'id' : 2,
+        'name' : 'Äpplen',
+        'description' : 'Fina svenska äpplen',
+        'inStock' : 7000
+    }];
+
     this.app.get('/products', function(req, res) {
-        that.response(res, 'Hello world');
+        that.response(res, JSON.stringify(that.products));
     });
     
     this.app.get('/carts/:id', function(req, res) {

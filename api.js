@@ -14,12 +14,27 @@ SpaApi.prototype.start = function() {
         'id' : 1,
         'name' : 'Limefrukt',
         'description' : 'Underbara limefrukter från sydamerika',
-        'inStock' : 2000
+        'inStock' : 20
     },{
         'id' : 2,
         'name' : 'Äpplen',
         'description' : 'Fina svenska äpplen',
-        'inStock' : 7000
+        'inStock' : 70
+    }, {
+        'id' : 3,
+        'name' : 'Bananer',
+        'description' : 'Bananer, Brasilien',
+        'inStock' : 50
+    }, {
+        'id' : 4,
+        'name' : 'Mango',
+        'description' : 'Fina fräsha Mangos',
+        'inStock' : 1
+    }, {
+        'id' : 5,
+        'name' : 'Kiwi',
+        'description' : 'Färska Kiwifrukter',
+        'inStock' : 10
     }];
 
     this.app.get('/products', function(req, res) {

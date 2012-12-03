@@ -55,7 +55,6 @@ ydemoe.Views.ItemView = Backbone.View.extend({
   	ydemoe.currentView = new ydemoe.Views.ProductDetailView({
   		model : this.model
   	});
-  	Backbone.history.navigate('#product/'+this.model.id, {trigger:true});
   }
 
 });

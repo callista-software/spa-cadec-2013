@@ -14,14 +14,21 @@
 
     </head>
     <body>
-    <div class="container">
-        <div class="hero-unit">
-            <h1>Välkommen!</h1>
-            <p>Våra produkter</p>
-            <ul id="products">
-            </ul>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span4">
+                    <h1>Välkommen!</h1>
+                    <p>Våra produkter</p>
+                    <ul id="products">
+                    </ul>
+                </div>
+                <div id="details" class="span4"></div>
+                <div class="span4">
+                    <h2>Din varukorg</h2>
+                    <ul id="cart"/>
+                </div>
+            </div>
         </div>
-    </div>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
@@ -34,22 +41,32 @@
         <script src="scripts/vendor/backbone-min.js"></script>
         <script src="scripts/main.js"></script>
         <script src="scripts/views/productsView.js"></script>
+        <script src="scripts/views/productDetailView.js"></script>
+        <script src="scripts/views/cartView.js"></script>
         <script src="scripts/models/productModel.js"></script>
+        <script src="scripts/models/cartModel.js"></script>
         <script src="scripts/collections/productCollection.js"></script>
+        <script src="scripts/collections/cart.js"></script>
         <script src="scripts/routes/application-router.js"></script>
-        <script src="scripts/app.js"></script>
         <!-- endbuild -->
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
         
         <script type="text/template" id="productsTemplate">
-            <%= name %>, <%= description %>
+            <%= name %>, <%= description %> (<%= inStock %>)
+        </script>
+
+        <script type="text/template" id="productDetailTemplate">
+            <h3><%= name %></h3>
+            <div><img src="<%= imgSrc %>"/></div>
+            <div>
+                <h4>Beskrivning</h4>
+             <%= description %>
+             <h5>I lager: <%= inStock %>
+            </div>
+            <button id="addToCart" class="btn">Lägg i korgen</button>
+        </script>
+
+         <script type="text/template" id="cartTemplate">
+            <%= name %>, <%= count %>
         </script>
 
     </body>

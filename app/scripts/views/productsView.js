@@ -7,11 +7,13 @@ ydemoe.Views.ProductsView = Backbone.View.extend({
 
   initialize : function () {
   	console.log('view init');
+  	this.model.on('change', this.render, this);
   	this.render();
   }, 
 
   render : function () {
   	var self = this;
+  	this.$el.empty();
   	_.each(this.model.models, function (product) {
 			var view = new ydemoe.Views.ItemView({
 				model : product
@@ -43,6 +45,17 @@ ydemoe.Views.ItemView = Backbone.View.extend({
   onclick : function () {
   	console.log('click!');
   	this.$el.addClass('highlight');
+  	if (ydemoe.currentView) {
+  		// unbind any events the view is listening to
+  		ydemoe.currentView.off();
+  		ydemoe.currentView.model.off();
+  		// remove the view from the dom, 
+  		//ydemoe.currentView.remove();
+  	}
+  	ydemoe.currentView = new ydemoe.Views.ProductDetailView({
+  		model : this.model
+  	});
+  	Backbone.history.navigate('#product/'+this.model.id, {trigger:true});
   }
 
 });

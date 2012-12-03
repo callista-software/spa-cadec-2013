@@ -4,7 +4,8 @@ ydemoe.Models.ProductModel = Backbone.Model.extend({
 		'id'          : '',
 		'name'        : '',
 		'description' : '',
-		'inStock'     : '0'
+		'inStock'     : '0',
+		'imgSrc'      : 'http://placehold.it/200x150'
 	},
 
 	initialize : function (options) {

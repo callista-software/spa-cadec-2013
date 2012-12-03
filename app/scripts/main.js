@@ -1,4 +1,3 @@
-
 window.ydemoe = {
   // define our namespaces
   Models: {},
@@ -12,4 +11,6 @@ window.ydemoe = {
 
 $(document).ready(function(){
   ydemoe.init();
+	new ydemoe.Routers.ApplicationRouter();
+  
 });

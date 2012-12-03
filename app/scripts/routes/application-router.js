@@ -5,9 +5,13 @@ ydemoe.Routers.ApplicationRouter = Backbone.Router.extend({
   },
 
 	initialize : function() {
+		var products;
 		console.log('router init');
+		
+		ydemoe.globalCart = new ydemoe.Collections.Cart();
+		new ydemoe.Views.CartView();
 
-		var products = new ydemoe.Collections.ProductCollection();
+		products = new ydemoe.Collections.ProductCollection();
 		products.fetch({
 			success : function() {
 				new ydemoe.Views.ProductsView({

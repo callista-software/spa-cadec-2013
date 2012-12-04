@@ -1,9 +1,9 @@
-ydemoe.Views.ProductDetailView = Backbone.View.extend({
+Cadec.Views.ProductDetailView = Backbone.View.extend({
 
 	el : '#details', 
 
 	events : {
-		'click #addToCart' : 'addToCart'
+		'click #addButton' : 'addToCart'
 	},
 
   initialize : function () {
@@ -15,11 +15,14 @@ ydemoe.Views.ProductDetailView = Backbone.View.extend({
 
   render : function () {
   	this.$el.empty().append(this.template(this.model.toJSON()));
+    if (this.model.get('inStock') < 1) {
+      $('#addButton', this.$el).attr('disabled','true');
+    }
   },
 
   addToCart : function () {
   	console.log('add to cart!');
-  	ydemoe.globalCart.addToCart(this.model);
+  	Cadec.globalCart.addToCart(this.model);
   }
 
 });

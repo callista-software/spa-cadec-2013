@@ -62,11 +62,11 @@
              <%= description %>
              <h5>I lager: <%= inStock %>
             </div>
-            <button id="addToCart" class="btn">Lägg i korgen</button>
+            <button id="addButton" class="btn">Lägg i korgen</button>
         </script>
 
          <script type="text/template" id="cartTemplate">
-            <%= name %>, <%= count %>
+            <%= name %>, <%= count %><i class="icon-plus-sign pull-right"></i><i class="icon-minus-sign pull-right" id="remove"></i>
         </script>
 
     </body>

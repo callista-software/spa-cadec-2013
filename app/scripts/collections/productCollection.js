@@ -1,6 +1,6 @@
-ydemoe.Collections.ProductCollection = Backbone.Collection.extend({
+Cadec.Collections.ProductCollection = Backbone.Collection.extend({
 
-  model : ydemoe.Models.ProductModel,
+  model : Cadec.Models.ProductModel,
   url : '/products'
 
 });

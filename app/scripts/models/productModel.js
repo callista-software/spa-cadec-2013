@@ -1,4 +1,4 @@
-ydemoe.Models.ProductModel = Backbone.Model.extend({
+Cadec.Models.ProductModel = Backbone.Model.extend({
 
 	defaults : {
 		'id'          : '',

@@ -1,4 +1,4 @@
-window.ydemoe = {
+window.Cadec = {
   // define our namespaces
   Models: {},
   Collections: {},
@@ -10,7 +10,7 @@ window.ydemoe = {
 };
 
 $(document).ready(function(){
-  ydemoe.init();
-	new ydemoe.Routers.ApplicationRouter();
+  Cadec.init();
+	new Cadec.Routers.ApplicationRouter();
   
 });

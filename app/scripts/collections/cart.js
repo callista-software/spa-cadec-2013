@@ -22,6 +22,7 @@ Cadec.Collections.Cart = Backbone.Collection.extend({
     var count = cartItem.get('count');
     if (count > 0) {
       cartItem.set('count', count - 1);
+      // behöver inc på original-produkten...
     }
   }
 

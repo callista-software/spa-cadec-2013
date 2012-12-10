@@ -1,6 +1,7 @@
 Cadec.Views.ProductDetailView = Backbone.View.extend({
 
-	el : '#details', 
+  // skpaar detachad div som vi hänger DOM-trädet manuellt i calling-koden
+	//el : '#details', 
 
 	events : {
 		'click #addButton' : 'addToCart'

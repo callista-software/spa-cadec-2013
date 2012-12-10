@@ -47,15 +47,16 @@ Cadec.Views.ItemView = Backbone.View.extend({
   	this.$el.addClass('highlight');
   	if (Cadec.currentView) {
   		// unbind any events the view is listening to
-  		Cadec.currentView.undelegateEvents();
-  		Cadec.currentView.off();
-  		Cadec.currentView.model.off();
+  		//Cadec.currentView.undelegateEvents();
+  		//Cadec.currentView.off();
+  		//sCadec.currentView.model.off();
   		// remove the view from the dom, 
-  		//Cadec.currentView.remove();
+  		Cadec.currentView.remove();
   	}
   	Cadec.currentView = new Cadec.Views.ProductDetailView({
   		model : this.model
   	});
+    $('#details').empty().append(Cadec.currentView.el);
   }
 
 });

@@ -5,7 +5,7 @@ Cadec.Models.ProductModel = Backbone.Model.extend({
 		'name'        : '',
 		'description' : '',
 		'inStock'     : '0',
-		'imgSrc'      : 'http://placehold.it/128x128'
+		'imgSrc'      : '128x128.png'
 	},
 
 	initialize : function (options) {

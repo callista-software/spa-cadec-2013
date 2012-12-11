@@ -47,6 +47,7 @@ Cadec.Views.CartItemView = Backbone.View.extend({
 	},
 
 	render : function () {
+    this.model.set('name', this.model.get('product').get('name'));
   	this.$el.html(this.template(this.model.toJSON()));
   }, 
 

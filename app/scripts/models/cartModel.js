@@ -7,6 +7,6 @@ Cadec.Models.CartModel = Backbone.Model.extend({
 	
 	initialize : function (options) {
 		console.log('cartitem init');
-		this.set('product', options.product);
+		this.id = this.get('product').id;
 	}
 });

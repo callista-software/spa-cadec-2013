@@ -29,9 +29,9 @@ Cadec.Views.ItemView = Backbone.View.extend({
 	tagName : 'li',
 	className : 'productItem',
 
-	events : {
+	/*events : {
 		'click' : 'onclick'
-	},
+	},*/
 
 	initialize : function () {
 		this.template = _.template($('#productsTemplate').html());
@@ -40,9 +40,9 @@ Cadec.Views.ItemView = Backbone.View.extend({
 
 	render : function () {
   	this.$el.html(this.template(this.model.toJSON()));
-  }, 
+  }
 
-  onclick : function () {
+  /*onclick : function () {
   	console.log('click!');
   	this.$el.addClass('highlight');
   	if (Cadec.currentView) {
@@ -56,6 +56,6 @@ Cadec.Views.ItemView = Backbone.View.extend({
   	Cadec.currentView = new Cadec.Views.ProductDetailView({
   		model : this.model
   	});
-  }
+  }*/
 
 });

@@ -26,6 +26,11 @@ app.use(errorHandler);
 // Serve static resources
 app.use(Express.static(__dirname + '/app'));
 
+/*app.use(function(req, res, next) {
+	console.log('BLLAAAAAAA');
+	return res.redirect(req.protocol + '://' + req.get('Host') + '/#' + req.url);
+});*/
+
 // Declare our api
 api.start();
 

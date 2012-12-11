@@ -1,17 +1,16 @@
 Cadec.Routers.ApplicationRouter = Backbone.Router.extend({
 
 	routes : {
-    '' : 'listProducts'
-  },
+    	'' : 'listProducts',
+    	'products/:id' : 'viewProduct'
+  	},
 
 	initialize : function() {
-		var products;
-		console.log('router init');
-		
-		Cadec.globalCart = new Cadec.Collections.Cart();
-		new Cadec.Views.CartView();
+		console.log('Router initialized...');
+	},
 
-		products = new Cadec.Collections.ProductCollection();
+	listProducts : function () {
+		var products = new Cadec.Collections.ProductCollection();
 		products.fetch({
 			success : function() {
 				new Cadec.Views.ProductsView({
@@ -24,7 +23,23 @@ Cadec.Routers.ApplicationRouter = Backbone.Router.extend({
 		});
 	},
 
-	listProducts : function () {
-		console.log('list products');
+	viewProduct : function(id) {
+		var self = this, product;
+		console.log('View product %s', id);
+
+		product = new Cadec.Models.ProductModel({
+			id : id
+		});
+
+		product.fetch({
+			success : function() {
+				new Cadec.Views.ProductDetailView({
+					model : product
+				});
+			},
+			error : function() {
+				console.log('Err');
+			}
+		});
 	}
 });

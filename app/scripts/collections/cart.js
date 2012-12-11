@@ -1,7 +1,7 @@
 Cadec.Collections.Cart = Backbone.Collection.extend({
 
   model : Cadec.Models.CartModel,
-  url : '/cart',
+  url : '/api/cart',
 
   addToCart : function (product) {
   	var self = this, found;

@@ -50,15 +50,17 @@
         <!-- endbuild -->
         
         <script type="text/template" id="productsTemplate">
-            <div class="span4" class="fruitItem ">
-                <div style="align:center;"><img src="images/fruits/mini-<%= imgSrc %>"/></div>
-                <div><%= name %>,<br/><%= description %><br/>I lager: <%= inStock %></div>
-            </div>
+            <a href="#products/<%= id %>">
+                <div class="span4" class="fruitItem ">
+                    <div style="align:center;"><img src="/images/fruits/mini-<%= imgSrc %>"/></div>
+                    <div><%= name %>,<br/><%= description %><br/>I lager: <%= inStock %></div>
+                </div>
+            </a>
         </script>
 
         <script type="text/template" id="productDetailTemplate">
             <h3><%= name %></h3>
-            <div><img src="images/fruits/<%= imgSrc %>"/></div>
+            <div><img src="/images/fruits/<%= imgSrc %>"/></div>
             <div>
                 <h4>Beskrivning</h4>
              <%= description %>

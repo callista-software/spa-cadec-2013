@@ -1,4 +1,4 @@
-ydemoe.Views.ProductsView = Backbone.View.extend({
+Cadec.Views.ProductsView = Backbone.View.extend({
 
 	//id : 'products',
 	//tagName : 'ul',
@@ -7,15 +7,15 @@ ydemoe.Views.ProductsView = Backbone.View.extend({
 
   initialize : function () {
   	console.log('view init');
-  	this.model.on('change', this.render, this);
+  	this.collection.on('change', this.render, this);
   	this.render();
   }, 
 
   render : function () {
   	var self = this;
   	this.$el.empty();
-  	_.each(this.model.models, function (product) {
-			var view = new ydemoe.Views.ItemView({
+  	_.each(this.collection.models, function (product) {
+			var view = new Cadec.Views.ItemView({
 				model : product
 			});
 			self.$el.append(view.el);
@@ -24,7 +24,7 @@ ydemoe.Views.ProductsView = Backbone.View.extend({
 
 });
 
-ydemoe.Views.ItemView = Backbone.View.extend({
+Cadec.Views.ItemView = Backbone.View.extend({
 
 	tagName : 'li',
 	className : 'productItem',
@@ -45,14 +45,15 @@ ydemoe.Views.ItemView = Backbone.View.extend({
   onclick : function () {
   	console.log('click!');
   	this.$el.addClass('highlight');
-  	if (ydemoe.currentView) {
+  	if (Cadec.currentView) {
   		// unbind any events the view is listening to
-  		ydemoe.currentView.off();
-  		ydemoe.currentView.model.off();
+  		Cadec.currentView.undelegateEvents();
+  		Cadec.currentView.off();
+  		Cadec.currentView.model.off();
   		// remove the view from the dom, 
-  		//ydemoe.currentView.remove();
+  		//Cadec.currentView.remove();
   	}
-  	ydemoe.currentView = new ydemoe.Views.ProductDetailView({
+  	Cadec.currentView = new Cadec.Views.ProductDetailView({
   		model : this.model
   	});
   }

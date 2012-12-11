@@ -1,4 +1,4 @@
-ydemoe.Models.CartModel = ydemoe.Models.ProductModel.extend({
+Cadec.Models.CartModel = Cadec.Models.ProductModel.extend({
 
 	defaults : {
 		count : 1

@@ -1,23 +1,29 @@
-ydemoe.Collections.Cart = Backbone.Collection.extend({
+Cadec.Collections.Cart = Backbone.Collection.extend({
 
-  model : ydemoe.Models.CartModel,
+  model : Cadec.Models.CartModel,
   url : '/cart',
 
   addToCart : function (product) {
   	var self = this, found;
-  	product.set('inStock', product.get('inStock')-1);
+  	product.set('inStock', product.get('inStock') - 1);
   	found = _.any(this.models, function(cartItem) {
   		if (cartItem.id == product.id) {
   			//console.log('Increase cart item id: %s with name %s', cartItem.id, cartItem.name);
-  			cartItem.set('count',cartItem.get('count')+1);
+  			cartItem.set('count', cartItem.get('count') + 1);
   			return true;
   		}
   	});
   	if (!found) {
-//  		product.set('count', 1);
-  		this.models.push(new ydemoe.Models.CartModel(product));
+  		this.add(new Cadec.Models.CartModel(product));
   	}
-  	//this.trigger('change');
+  },
+
+  decCart : function (cartItem) {
+    var count = cartItem.get('count');
+    if (count > 0) {
+      cartItem.set('count', count - 1);
+      // behöver inc på original-produkten...
+    }
   }
 
 });

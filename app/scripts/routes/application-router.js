@@ -1,4 +1,4 @@
-ydemoe.Routers.ApplicationRouter = Backbone.Router.extend({
+Cadec.Routers.ApplicationRouter = Backbone.Router.extend({
 
 	routes : {
     '' : 'listProducts'
@@ -8,14 +8,14 @@ ydemoe.Routers.ApplicationRouter = Backbone.Router.extend({
 		var products;
 		console.log('router init');
 		
-		ydemoe.globalCart = new ydemoe.Collections.Cart();
-		new ydemoe.Views.CartView();
+		Cadec.globalCart = new Cadec.Collections.Cart();
+		new Cadec.Views.CartView();
 
-		products = new ydemoe.Collections.ProductCollection();
+		products = new Cadec.Collections.ProductCollection();
 		products.fetch({
 			success : function() {
-				new ydemoe.Views.ProductsView({
-					model : products
+				new Cadec.Views.ProductsView({
+					collection : products
 				});
 			},
 			error : function() {

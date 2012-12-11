@@ -2,3 +2,11 @@
 li.highlight {
 	background-color: yellow;
 }
+
+li {
+	list-style-type: none;
+ 	list-style-image: none;
+}
+.fruitItem {
+	padding: 5px;
+}

@@ -1,11 +1,11 @@
-ydemoe.Models.ProductModel = Backbone.Model.extend({
+Cadec.Models.ProductModel = Backbone.Model.extend({
 
 	defaults : {
 		'id'          : '',
 		'name'        : '',
 		'description' : '',
 		'inStock'     : '0',
-		'imgSrc'      : 'http://placehold.it/200x150'
+		'imgSrc'      : '128x128.png'
 	},
 
 	initialize : function (options) {

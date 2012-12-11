@@ -21,8 +21,13 @@ Cadec.Views.ProductDetailView = Backbone.View.extend({
   },
 
   addToCart : function () {
-  	console.log('add to cart!');
-  	Cadec.globalCart.addToCart(this.model);
+  	console.log('add to cart! %s', this.model);
+
+    var cartItem = new Cadec.Models.CartModel({
+      product : this.model
+    });
+
+  	Cadec.globalCart.addToCart(cartItem);
   }
 
 });

@@ -14,7 +14,7 @@ Cadec.Views.ProductsView = Backbone.View.extend({
   render : function () {
   	var self = this;
   	this.$el.empty();
-  	_.each(this.collection.models, function (product) {
+  	this.collection.each(function (product) {
 			var view = new Cadec.Views.ItemView({
 				model : product
 			});
@@ -49,8 +49,8 @@ Cadec.Views.ItemView = Backbone.View.extend({
   		// unbind any events the view is listening to
   		Cadec.currentView.undelegateEvents();
   		Cadec.currentView.off();
-  		Cadec.currentView.model.off();
-  		// remove the view from the dom, 
+  		//Cadec.currentView.model.off(); // this removes the event listener for the products list...
+  		// remove the view from the dom, this needs to be called otherwise the view could still be active
   		//Cadec.currentView.remove();
   	}
   	Cadec.currentView = new Cadec.Views.ProductDetailView({

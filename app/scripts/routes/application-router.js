@@ -9,7 +9,9 @@ Cadec.Routers.ApplicationRouter = Backbone.Router.extend({
 		console.log('router init');
 		
 		Cadec.globalCart = new Cadec.Collections.Cart();
-		new Cadec.Views.CartView();
+		new Cadec.Views.CartView({
+			collection : Cadec.globalCart
+		});
 
 		products = new Cadec.Collections.ProductCollection();
 		products.fetch({

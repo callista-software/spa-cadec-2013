@@ -7,13 +7,21 @@ Cadec.Views.CartView = Backbone.View.extend({
 
   initialize : function () {
   	console.log('cart init');
-  	this.collection = Cadec.globalCart;
-  	this.collection.on('change', this.render, this);
+  	this.collection.on('change', this.onChange, this); // if a model in the collection has changed, eg count
   	this.collection.on('add', this.onAdd, this);
-  	this.render();
+  	this.collection.on('remove', this.onRemove, this);
+    this.render();
   },
 
   onAdd : function() {
+    this.render();
+  },
+
+  onRemove : function() {
+    this.render();
+  },
+
+  onChange : function() {
     this.render();
   },
 
@@ -21,7 +29,7 @@ Cadec.Views.CartView = Backbone.View.extend({
   	var self = this;
     // clear the cart before new render
     this.$el.empty();
-  	_.each(this.collection.models, function (cartModel) {
+  	this.collection.each(function (cartModel) {
 			var view = new Cadec.Views.CartItemView({
 				model : cartModel
 			});
@@ -47,7 +55,6 @@ Cadec.Views.CartItemView = Backbone.View.extend({
 	},
 
 	render : function () {
-    this.model.set('name', this.model.get('product').get('name'));
   	this.$el.html(this.template(this.model.toJSON()));
   }, 
 

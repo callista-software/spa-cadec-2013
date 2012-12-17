@@ -60,6 +60,12 @@ SpaApi.prototype.start = function() {
         console.log('Removing item (%s) from cart (%s)', req.params.product_id, req.params.id);
         that.response(res, 'Removed item cart');
     });
+
+    this.app.post('/order', function(req, res) {
+        console.log('Placing order');
+        that.response(res, '{success: true}');
+    });
+
 }
 
 module.exports = SpaApi

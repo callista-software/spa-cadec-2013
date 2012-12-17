@@ -22,7 +22,7 @@ Cadec.Collections.Cart = Backbone.Collection.extend({
   	}
   },
 
-  decCart : function (cartItem) {
+  removeFromCart : function (cartItem) {
     var count = cartItem.get('count'), product;
     if (count > 0) {
       cartItem.set('count', count - 1);
@@ -30,6 +30,10 @@ Cadec.Collections.Cart = Backbone.Collection.extend({
       product = cartItem.product;
       product.set('inStock', product.get('inStock') + 1);
     }
+  }, 
+
+  parse : function (response) {
+    return response;
   }
 
 });

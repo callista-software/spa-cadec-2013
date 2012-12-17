@@ -1,11 +1,10 @@
-/* Will be compiled down to a single stylesheet with your sass files */
-li.highlight {
-	background-color: yellow;
-}
-
 li {
 	list-style-type: none;
  	list-style-image: none;
+}
+#details {
+	padding: 0 20px;
+	border: 0 1px solid gray;
 }
 .fruitItem {
 	padding: 5px;

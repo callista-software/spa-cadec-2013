@@ -16,15 +16,16 @@
     <body>
         <div class="container-fluid">
             <div class="row-fluid">
-                <div class="span4">
+                <div class="span5">
                     <h2>Våra frukter</h2>
                     <ul id="products">
                     </ul>
                 </div>
-                <div id="details" class="span4"></div>
-                <div class="span4">
+                <div id="details" class="span3"></div>
+                <div id="cart" class="span4">
                     <h2>Din fruktkorg</h2>
-                    <ul id="cart"/>
+                    <ul></ul>
+                    <button id="order" class="btn pull-right">Till kassan</button>
                 </div>
             </div>
         </div>
@@ -37,7 +38,7 @@
         <!-- build:js scripts/scripts.js -->
         <script src="scripts/vendor/jquery.min.js"></script>
         <script src="scripts/vendor/lodash.min.js"></script>
-        <script src="scripts/vendor/backbone-min.js"></script>
+        <script src="scripts/vendor/backbone.js"></script>
         <script src="scripts/main.js"></script>
         <script src="scripts/views/productsView.js"></script>
         <script src="scripts/views/productDetailView.js"></script>

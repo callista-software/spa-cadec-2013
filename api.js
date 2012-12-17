@@ -31,7 +31,7 @@ SpaApi.prototype.start = function() {
     }, {
         'id' : 4,
         'name' : 'Mango',
-        'description' : 'Fina fräsha Mangos',
+        'description' : 'Fina fräscha Mangos',
         'inStock' : 1,
         'imgSrc' : 'mango.png'
     }, {
@@ -61,9 +61,9 @@ SpaApi.prototype.start = function() {
         that.response(res, 'Removed item cart');
     });
 
-    this.app.post('/order', function(req, res) {
+    this.app.post('/cart', function(req, res) {
         console.log('Placing order');
-        that.response(res, '{success: true}');
+        that.response(res, '');
     });
 
 }

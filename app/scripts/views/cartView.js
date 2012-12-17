@@ -1,13 +1,16 @@
 Cadec.Views.CartView = Backbone.View.extend({
 
-	//id : 'products',
-	//tagName : 'ul',
-
 	el : '#cart', // samma som id om dom-elementet redan finns i dokumentet
+
+  events : {
+    'click #order' : 'order'
+  },
 
   initialize : function () {
   	console.log('cart init');
-  	this.collection.on('change', this.onChange, this); // if a model in the collection has changed, eg count
+    // shortcut to the ul element 
+  	this.$ul = $('ul', this.$el);
+    this.collection.on('change', this.onChange, this); // if a model in the collection has changed, eg count
   	this.collection.on('add', this.onAdd, this);
   	this.collection.on('remove', this.onRemove, this);
     this.render();
@@ -28,13 +31,25 @@ Cadec.Views.CartView = Backbone.View.extend({
   render : function () {
   	var self = this;
     // clear the cart before new render
-    this.$el.empty();
+    this.$ul.empty();
   	this.collection.each(function (cartModel) {
 			var view = new Cadec.Views.CartItemView({
 				model : cartModel
 			});
-			self.$el.append(view.el);
+			self.$ul.append(view.el);
 		});
+  }, 
+
+  order : function () {
+    console.log('Order!');
+    this.collection.sync('create', this.collection, {
+      success : function (model, response, options) {
+        console.log('order sent');
+      }, 
+      error : function (model, xhr, options) {
+        console.log('failed to send order: '+xhr.responseText);
+      }
+    });
   }
 
 });
@@ -46,7 +61,7 @@ Cadec.Views.CartItemView = Backbone.View.extend({
 
 	events : {
 		'click .icon-plus-sign' : 'add',
-    'click #remove' : 'remove'
+    'click .icon-minus-sign' : 'remove'
 	},
 
 	initialize : function () {
@@ -65,7 +80,7 @@ Cadec.Views.CartItemView = Backbone.View.extend({
 
   remove : function () {
     console.log('remove!');
-    Cadec.globalCart.decCart(this.model);
+    Cadec.globalCart.removeFromCart(this.model);
   }
 
 });

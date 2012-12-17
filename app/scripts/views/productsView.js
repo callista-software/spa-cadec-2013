@@ -49,7 +49,8 @@ Cadec.Views.ItemView = Backbone.View.extend({
   		// unbind any events the view is listening to
   		Cadec.currentView.undelegateEvents();
   		Cadec.currentView.off();
-  		//Cadec.currentView.model.off(); // this removes the event listener for the products list...
+      Cadec.currentView.model.off("change", Cadec.currentView.productChanged); // turn off only the productDetails onChange
+      //Cadec.currentView.model.off(); // this removes the event listener for the products list...
   		// remove the view from the dom, this needs to be called otherwise the view could still be active
   		//Cadec.currentView.remove();
   	}

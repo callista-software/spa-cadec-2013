@@ -9,7 +9,7 @@ Cadec.Views.ProductDetailView = Backbone.View.extend({
   initialize : function () {
   	console.log('details init');
 		this.template = _.template($('#productDetailTemplate').html());
-		this.model.on('change', this.render, this);
+		this.model.on('change', this.productChanged, this);
   	this.render();
   }, 
 
@@ -20,6 +20,10 @@ Cadec.Views.ProductDetailView = Backbone.View.extend({
     }
   },
 
+  productChanged : function () {
+    this.render();
+  },
+  
   addToCart : function () {
   	console.log('add to cart! %s', this.model);
 

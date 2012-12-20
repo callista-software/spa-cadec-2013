@@ -1,4 +1,4 @@
-window.cadec = {
+window.Cadec = {
     Models : { },
     Collections : { },
     Views : { },
@@ -7,11 +7,8 @@ window.cadec = {
         console.log('Namespaces declared...');
     }
 };
-
 $(document).ready(function() {
-    console.log('Hello Cadec!');
-    cadec.init();
-    new cadec.Routers.ApplicationRouter();
-
+    Cadec.init();
+    new Cadec.Routers.ApplicationRouter();
     Backbone.history.start()
 });

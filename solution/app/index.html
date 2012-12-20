@@ -53,7 +53,7 @@
         <script type="text/template" id="productsTemplate">
             <div class="span4" class="fruitItem ">
                 <div style="align:center;"><img src="images/fruits/mini-<%= imgSrc %>"/></div>
-                <div><%= name %>,<br/><%= description %><br/>I lager: <%= inStock %></div>
+                <div><span style="font-weight: bold;"><%= name %></span><br/>I lager: <%= inStock %></div>
             </div>
         </script>
 
@@ -61,7 +61,7 @@
             <h3><%= name %></h3>
             <div><img src="images/fruits/<%= imgSrc %>"/></div>
             <div>
-                <h4>Beskrivning</h4>
+                <h4>Beskrivning:</h4>
              <%= description %>
              <h5>I lager: <%= inStock %>
             </div>

@@ -14,7 +14,7 @@ Cadec.Views.ProductsView = Backbone.View.extend({
   render : function () {
   	var self = this;
   	this.$el.empty();
-  	_.each(this.collection.models, function (product) {
+  	this.collection.each(function (product) {
 			var view = new Cadec.Views.ItemView({
 				model : product
 			});
@@ -43,7 +43,7 @@ Cadec.Views.ItemView = Backbone.View.extend({
   }, 
 
   onclick : function () {
-  	console.log('click!');
+  	console.log('click in list!');
   	this.$el.addClass('highlight');
   	if (Cadec.currentView) {
   		// remove the view from the dom
@@ -52,7 +52,7 @@ Cadec.Views.ItemView = Backbone.View.extend({
   	Cadec.currentView = new Cadec.Views.ProductDetailView({
   		model : this.model
   	});
-        $('#details').empty().append(Cadec.currentView.$el);
+    $('#details').empty().append(Cadec.currentView.$el);
   }
 
 });

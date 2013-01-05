@@ -16,16 +16,16 @@
     <body>
         <div class="container-fluid">
             <div class="row-fluid">
-                <div class="span4">
-                    <h1>Välkommen!</h1>
-                    <p>Våra produkter</p>
+                <div class="span5">
+                    <h2>Våra frukter</h2>
                     <ul id="products">
                     </ul>
                 </div>
-                <div id="details" class="span4"></div>
-                <div class="span4">
-                    <h2>Din varukorg</h2>
-                    <ul id="cart"/>
+                <div id="details" class="span3"></div>
+                <div id="cart" class="span4">
+                    <h2>Din fruktkorg</h2>
+                    <ul></ul>
+                    <button id="order" class="btn pull-right">Till kassan</button>
                 </div>
             </div>
         </div>
@@ -51,14 +51,17 @@
         <!-- endbuild -->
         
         <script type="text/template" id="productsTemplate">
-            <%= name %>, <%= description %> (<%= inStock %>)
+            <div class="span4" class="fruitItem ">
+                <div style="align:center;"><img src="images/fruits/mini-<%= imgSrc %>"/></div>
+                <div><span style="font-weight: bold;"><%= name %></span><br/>I lager: <%= inStock %></div>
+            </div>
         </script>
 
         <script type="text/template" id="productDetailTemplate">
             <h3><%= name %></h3>
-            <div><img src="<%= imgSrc %>"/></div>
+            <div><img src="images/fruits/<%= imgSrc %>"/></div>
             <div>
-                <h4>Beskrivning</h4>
+                <h4>Beskrivning:</h4>
              <%= description %>
              <h5>I lager: <%= inStock %>
             </div>

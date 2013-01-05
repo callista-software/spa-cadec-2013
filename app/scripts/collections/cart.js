@@ -3,27 +3,37 @@ Cadec.Collections.Cart = Backbone.Collection.extend({
   model : Cadec.Models.CartModel,
   url : '/cart',
 
-  addToCart : function (product) {
-  	var self = this, found;
-  	product.set('inStock', product.get('inStock') - 1);
-  	found = _.any(this.models, function(cartItem) {
-  		if (cartItem.id == product.id) {
-  			//console.log('Increase cart item id: %s with name %s', cartItem.id, cartItem.name);
+  addToCart : function (newItem) {
+  	var self = this, found, product;
+    
+    product = newItem.product;
+    product.set('inStock', product.get('inStock') - 1);
+
+  	found = this.any(function(cartItem) {
+  		if (cartItem.product.id == product.id) {
   			cartItem.set('count', cartItem.get('count') + 1);
+
   			return true;
   		}
   	});
+
   	if (!found) {
-  		this.add(new Cadec.Models.CartModel(product));
+  		this.add(newItem);
   	}
   },
 
-  decCart : function (cartItem) {
-    var count = cartItem.get('count');
+  removeFromCart : function (cartItem) {
+    var count = cartItem.get('count'), product;
     if (count > 0) {
       cartItem.set('count', count - 1);
-      // behöver inc på original-produkten...
+
+      product = cartItem.product;
+      product.set('inStock', product.get('inStock') + 1);
     }
+  }, 
+
+  parse : function (response) {
+    return response;
   }
 
 });

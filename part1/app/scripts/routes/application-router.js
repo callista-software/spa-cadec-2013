@@ -1,13 +1,12 @@
 Cadec.Routers.ApplicationRouter = Backbone.Router.extend({
     initialize : function() {
         console.log('Application Router initialized...');
+        this.listProducts();
     },
-    routes : {
-    	'' : 'listProducts',
-	},
 
     listProducts : function () {
-        console.log('list products');var products = new Cadec.Collections.ProductCollection();
+        console.log('list products');
+        var products = new Cadec.Collections.ProductCollection();
         products.fetch({
             success : function() {
                 console.log('Succeeded in fetching products');

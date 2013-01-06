@@ -8,14 +8,14 @@ Cadec.Routers.ApplicationRouter = Backbone.Router.extend({
         new Cadec.Views.CartView({
             collection : Cadec.globalCart
         });
+
+        this.listProducts();
+
     },
     
-    routes : {
-    	'' : 'listProducts',
-	},
-
     listProducts : function () {
-        console.log('list products');var products = new Cadec.Collections.ProductCollection();
+        var products = new Cadec.Collections.ProductCollection();
+        console.log('list products');
         products.fetch({
             success : function() {
                 console.log('Succeeded in fetching products');

@@ -17,7 +17,10 @@ Cadec.Views.ProductDetailView = Backbone.View.extend({
             // find the addButton in this dom-tree and disable it
             $('#addButton', this.$el).attr('disabled','true');
         }
+
+        $('#details').empty().append(this.$el);
     },
+
 	events : {
 	    'click #addButton' : 'addToCart'
 	},

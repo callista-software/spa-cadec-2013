@@ -32,22 +32,5 @@ Cadec.Views.ItemView = Backbone.View.extend({
 
   render : function () {
     this.$el.html(this.template(this.model.toJSON()));
-  }, 
-
-  events : {
-      'click' : 'onclick'
-  },
-
-  onclick : function () {
-      console.log('click! '+this.model.cid);
-      if (Cadec.currentView) {
-        // remove the view from the dom, this needs to be called otherwise the view could still be active
-        Cadec.currentView.remove();
-      }
-      Cadec.currentView = new Cadec.Views.ProductDetailView({
-        model : this.model
-      });
-      this.$el.addClass('highlight');
-      $('#details').empty().append(Cadec.currentView.el);
   }
 });

@@ -59,7 +59,12 @@
         <script type="text/template" id="productsTemplate">
             <div class="span4" class="fruitItem ">
                 <div style="align:center;"><img src="images/fruits/mini-<%= imgSrc %>"/></div>
-                <div><span style="font-weight: bold;"><%= name %></span><br/>I lager: <%= inStock %></div>
+                <div>
+                    <span style="font-weight: bold;">
+                    <%= name %></span><br/>
+                    I lager: <%= inStock %><br />
+                    <a href="#/products/<%= id %>">Visa produkt</a>
+                </div>
             </div>
         </script>
 

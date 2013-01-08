@@ -10,13 +10,13 @@ Cadec.Routers.ApplicationRouter = Backbone.Router.extend({
         
         this.products = new Cadec.Collections.ProductCollection();
         this.products.fetch({async : false});
-        
+
         new Cadec.Views.CartView({
             collection : Cadec.globalCart
         });
     },
     
-    listProducts : function () {
+    listProducts : function() {
         var self = this;
 
         console.log('Listing products');
@@ -31,14 +31,13 @@ Cadec.Routers.ApplicationRouter = Backbone.Router.extend({
     },
 
     viewProduct : function(id) {
-
         var self = this;
-
         this.listProducts();
 
         console.log('View product %s', id);
         this.products.each(function(product) {
             if (product.get('id') == id) {
+
                 if (self.currentDetailView) {
                     self.currentDetailView.remove();
                 }

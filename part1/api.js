@@ -94,7 +94,8 @@ SpaApi.prototype.start = function() {
 
    this.app.post('/api/order', function(req, res) {
         console.log('Placing order');
-        that.response(res, '{success: true}');
+        console.log(req.body);
+        that.response(res, '');
     });
 }
 

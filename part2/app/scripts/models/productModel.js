@@ -1,6 +1,6 @@
 Cadec.Models.ProductModel = Backbone.Model.extend({
 
-    urlRoot: '/products',
+    urlRoot : '/api/products',
     
     defaults : {
         'id'          : '',

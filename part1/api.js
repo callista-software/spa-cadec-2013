@@ -42,16 +42,16 @@ SpaApi.prototype.start = function() {
         'imgSrc' : 'kiwi.png'
     }];
 
-    this.app.get('/products', function(req, res) {
+    this.app.get('/api/products', function(req, res) {
         that.response(res, JSON.stringify(that.products));
     });
 
-    this.app.get('/products/:id', function(req, res) {
+    this.app.get('/api/products/:id', function(req, res) {
         console.log('Get product with id %s', req.params.id);
         that.response(res, JSON.stringify(that.products[req.params.id]));
     });
 
-    this.app.put('/products', function(req, res) {
+    this.app.put('/api/products', function(req, res) {
         console.log('PUT new data: %s', req.body.name);
         var fruit = req.body;
         fruit.id = that.products.length;
@@ -59,7 +59,7 @@ SpaApi.prototype.start = function() {
         that.response(res, JSON.stringify(fruit));
     });
 
-    this.app.put('/products/:id', function(req, res) {
+    this.app.put('/api/products/:id', function(req, res) {
         console.log('PUT data: [%s]:%s', req.params.id, req.body.name);
         var fruit = that.products[req.params.id];
         fruit.name = req.body.name;
@@ -69,7 +69,7 @@ SpaApi.prototype.start = function() {
         that.response(res, JSON.stringify(fruit));
     });
 
-    this.app.post('/products', function(req, res) {
+    this.app.post('/api/products', function(req, res) {
         console.log('Save product', req.params.id);
         if(req.params.id<that.products.length) throw new Error('Product with id %s already exists', req.params.id);
         that.response(res, JSON.stringify(that.products[0]));
@@ -77,22 +77,22 @@ SpaApi.prototype.start = function() {
         //that.response(res, JSON.stringify(that.products[req.params.id]));
     });
 
-    this.app.get('/carts/:id', function(req, res) {
+    this.app.get('/api/carts/:id', function(req, res) {
         console.log('Get cart with id %s', req.params.id);
         that.response(res, 'Get cart');
     });
     
-    this.app.post('/carts/:id/items', function(req, res) {
+    this.app.post('/api/carts/:id/items', function(req, res) {
         console.log('Adding item to cart (%s)', req.params.id);
         that.response(res, 'Adding cart item');
     });
     
-    this.app.delete('/cart/:id/items/:product_id', function(req, res) {
+    this.app.delete('/api/cart/:id/items/:product_id', function(req, res) {
         console.log('Removing item (%s) from cart (%s)', req.params.product_id, req.params.id);
         that.response(res, 'Removed item cart');
     });
 
-   this.app.post('/order', function(req, res) {
+   this.app.post('/api/order', function(req, res) {
         console.log('Placing order');
         that.response(res, '{success: true}');
     });

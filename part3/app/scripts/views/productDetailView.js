@@ -8,7 +8,9 @@ Cadec.Views.ProductDetailView = Backbone.View.extend({
         console.log('details init');
         this.template = _.template($('#productDetailTemplate').html());
         this.render();
-        this.model.on('change', this.render, this);
+        
+        $('#details').empty().append(this.$el);
+        this.listenTo(this.model, 'change', this.render, this);
     }, 
 
     render : function () {
@@ -18,6 +20,7 @@ Cadec.Views.ProductDetailView = Backbone.View.extend({
             $('#addButton', this.$el).attr('disabled','true');
         }
     },
+    
 	events : {
 	    'click #addButton' : 'addToCart'
 	},

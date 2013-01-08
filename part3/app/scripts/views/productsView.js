@@ -48,6 +48,5 @@ Cadec.Views.ItemView = Backbone.View.extend({
         model : this.model
       });
       this.$el.addClass('highlight');
-      $('#details').empty().append(Cadec.currentView.el);
   }
 });

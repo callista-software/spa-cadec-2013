@@ -45,6 +45,17 @@
         <script src="scripts/collections/CartCollection.js"></script>
         <script src="scripts/views/CartView.js"></script>
         <script src="scripts/views/ProductDetailView.js"></script>
+       
+        <script type="text/template" id="productsTemplate">
+            <div class="span4" class="fruitItem ">
+                <div style="align:center;"><img src="images/fruits/mini-<%= imgSrc %>"/></div>
+                <div><span style="font-weight: bold;"><%= name %></span><br/>I lager: <%= inStock %></div>
+            </div>
+        </script>
+
+         <script type="text/template" id="cartTemplate">
+            <%= name %>, <%= count %><i class="icon-plus-sign pull-right"></i><i class="icon-minus-sign pull-right" id="remove"></i>
+        </script>
 
         <script type="text/template" id="productDetailTemplate">
             <h3><%= name %></h3>
@@ -55,17 +66,6 @@
                 <h5>I lager: <%= inStock %>
             </div>
             <button id="addButton" class="btn">Lägg i korgen</button>
-        </script>
-        <script type="text/template" id="productsTemplate">
-            <div class="span4" class="fruitItem ">
-                <div style="align:center;"><img src="images/fruits/mini-<%= imgSrc %>"/></div>
-                <div><span style="font-weight: bold;"><%= name %></span><br/>I lager: <%= inStock %><br />
-                <a href="#/products/<%= id %>">Visa produkt</a></div>
-            </div>
-        </script>
-
-         <script type="text/template" id="cartTemplate">
-            <%= name %>, <%= count %><i class="icon-plus-sign pull-right"></i><i class="icon-minus-sign pull-right" id="remove"></i>
         </script>
 
     </body>

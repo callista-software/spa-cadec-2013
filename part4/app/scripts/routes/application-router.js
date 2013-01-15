@@ -1,40 +1,36 @@
 Cadec.Routers.ApplicationRouter = Backbone.Router.extend({
 
-    products : null,
-    currentDetailView : null,
-
     initialize : function() {
         console.log('Application Router initialized...');
     
+        var self = this;
+
         Cadec.globalCart = new Cadec.Collections.Cart();
+        
         new Cadec.Views.CartView({
             collection : Cadec.globalCart
         });
+
+        this.products = new Cadec.Collections.ProductCollection();
+        this.products.fetch({
+            async : false,
+            success : function() {
+                self.listProducts();
+            }
+        });
+
     },
     
-    listProducts : function() {
-        var self = this;
-
-        if (!this.products) {
-            this.products = new Cadec.Collections.ProductCollection();
-            this.products.fetch({
-                success : function() {
-                    new Cadec.Views.ProductsView({collection : self.products});
-                }
+    listProducts : function () {
+        if (this.products) {
+            new Cadec.Views.ProductsView({
+                collection : this.products
             });
-        } else {
-            new Cadec.Views.ProductsView({collection : self.products})
         }
-    },
-
-    routes : {
-        'products' : 'listProducts',
-        'products/:id' : 'viewProduct'
     },
 
     viewProduct : function(id) {
         var self = this;
-        this.listProducts();
 
         console.log('View product %s', id);
         this.products.any(function(product) {
@@ -48,5 +44,10 @@ Cadec.Routers.ApplicationRouter = Backbone.Router.extend({
                 return true;
             }
         });
+    },
+
+    routes : {
+        'products' : 'listProducts',
+        'products/:id' : 'viewProduct'
     }
 });

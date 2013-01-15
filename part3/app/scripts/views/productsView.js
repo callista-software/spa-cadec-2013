@@ -34,7 +34,7 @@ Cadec.Views.ItemView = Backbone.View.extend({
     this.$el.html(this.template(this.model.toJSON()));
   }, 
 
-  events : {
+  /*events : {
       'click' : 'onclick'
   },
 
@@ -48,5 +48,5 @@ Cadec.Views.ItemView = Backbone.View.extend({
         model : this.model
       });
       this.$el.addClass('highlight');
-  }
+  }*/
 });

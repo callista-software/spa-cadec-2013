@@ -10,5 +10,4 @@ window.Cadec = {
 $(document).ready(function() {
     Cadec.init();
     new Cadec.Routers.ApplicationRouter();
-    Backbone.history.start();
 });

@@ -5,7 +5,6 @@ Cadec.Views.ProductsView = Backbone.View.extend({
   initialize : function () {
     console.log('Product Collection view init');
     this.render();
-    this.collection.on('change', this.render, this);
   }, 
 
 	render : function () {
@@ -34,19 +33,4 @@ Cadec.Views.ItemView = Backbone.View.extend({
     this.$el.html(this.template(this.model.toJSON()));
   }, 
 
-  /*events : {
-      'click' : 'onclick'
-  },
-
-  onclick : function () {
-      console.log('click! '+this.model.cid);
-      if (Cadec.currentView) {
-        // remove the view from the dom, this needs to be called otherwise the view could still be active
-        Cadec.currentView.remove();
-      }
-      Cadec.currentView = new Cadec.Views.ProductDetailView({
-        model : this.model
-      });
-      this.$el.addClass('highlight');
-  }*/
 });

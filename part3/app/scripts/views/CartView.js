@@ -6,7 +6,27 @@ Cadec.Views.CartView = Backbone.View.extend({
   		console.log('cart view init');
 	  	this.$ul = $('ul', this.$el); // shortcut to the ul element 
     	this.render();
+
+        this.listenTo(this.collection, 'add', this.onAdd);
+        this.listenTo(this.collection, 'remove', this.onRemove);
+        // if a model in the collection has changed, eg count
+        this.listenTo(this.collection, 'change', this.onChange); 
   	},
+
+    onAdd : function() {
+      console.log('add event');
+      this.render();
+    },
+
+    onRemove : function() {
+      console.log('remove event');
+      this.render();
+    },
+
+    onChange : function() {
+      console.log('change event');
+      this.render();
+    },
 
 
   	render : function () {
@@ -36,5 +56,18 @@ Cadec.Views.CartItemView = Backbone.View.extend({
   		this.$el.html(this.template(this.model.toJSON()));
   	}, 
 
+    events : {
+        'click .icon-plus-sign' : 'add',
+        'click .icon-minus-sign' : 'remove'
+    },
 
+    add : function () {
+        console.log('add!');
+        Cadec.globalCart.addToCart(this.model);
+    }, 
+
+    remove : function () {
+        console.log('remove!');
+        Cadec.globalCart.removeFromCart(this.model);
+    }
 });

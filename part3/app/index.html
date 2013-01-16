@@ -44,6 +44,19 @@
         <script src="scripts/models/CartModel.js"></script>
         <script src="scripts/collections/CartCollection.js"></script>
         <script src="scripts/views/CartView.js"></script>
+
+        <script src="scripts/views/ProductDetailView.js"></script>
+
+        <script type="text/template" id="productDetailTemplate">
+            <h3><%= name %></h3>
+            <div><img src="images/fruits/<%= imgSrc %>"/></div>
+            <div>
+                <h4>Beskrivning</h4>
+                <%= description %>
+                <h5>I lager: <%= inStock %>
+            </div>
+            <button id="addButton" class="btn">Lägg i korgen</button>
+        </script>
        
         <script type="text/template" id="productsTemplate">
             <div class="span4" class="fruitItem ">

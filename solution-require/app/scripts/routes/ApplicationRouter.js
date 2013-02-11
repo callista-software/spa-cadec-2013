@@ -2,14 +2,11 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'app',
-  'collections/CartCollection', 
-  'views/CartView', 
+  'app', 
   'collections/ProductCollection',
   'views/ProductsView',
   'views/ProductDetailView'
-], function ( $, _, Backbone, Cadec, CartCollection, CartView, 
-  ProductCollection, ProductsView, ProductDetailView ) {
+], function ( $, _, Backbone, Cadec, ProductCollection, ProductsView, ProductDetailView ) {
 
   var ApplicationRouter = Backbone.Router.extend({
 
@@ -22,17 +19,11 @@ define([
       console.log('Application Router initialized...');
       var self = this;
 
-      Cadec.globalCart = new CartCollection();
-      
-      new CartView({
-        collection : Cadec.globalCart
-      });
-
       this.products = new ProductCollection();
       this.products.fetch({
         async : false,
         success : function() {
-            self.listProducts();
+          self.listProducts();
         }
       });
 
@@ -47,9 +38,8 @@ define([
     },
 
     viewProduct : function( id ) {
-      var self = this;
-
       console.log('View product %s', id);
+
       this.products.any(function(product) {
         if (product.get('id') == id) {
 

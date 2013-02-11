@@ -1,11 +1,18 @@
 require([
   'backbone',
   'routes/ApplicationRouter', 
-  'app'
-], function ( Backbone, Router, App ) {
+  'app',
+  'collections/CartCollection', 
+  'views/CartView'
+], function ( Backbone, Router, Cadec, CartCollection, CartView ) {
 
   console.log('Init application...');
-  // create an Cart object
+  // create a Cart in the Cadec app object
+  Cadec.globalCart = new CartCollection();
+  
+  new CartView({
+    collection : Cadec.globalCart
+  });
 
   // create the router
   new Router();

@@ -1,16 +1,14 @@
 require([
   'backbone',
-  'routes/ApplicationRouter'
-], function ( Backbone, Router ) {
+  'routes/ApplicationRouter', 
+  'app'
+], function ( Backbone, Router, App ) {
 
   console.log('Init application...');
-  // create an app object
-  var Cadec = {};
+  // create an Cart object
 
   // create the router
-  new Router({
-    app: Cadec
-  });
+  new Router();
   // init application
   Backbone.history.start();
 

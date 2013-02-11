@@ -2,8 +2,9 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'app',
   'models/CartModel'
-], function ( $, _, Backbone, CartModel ) { 
+], function ( $, _, Backbone, Cadec, CartModel ) { 
 
   var ProductDetailView = Backbone.View.extend({
 
@@ -18,7 +19,6 @@ define([
     initialize : function ( options ) {
       console.log('details init');
       this.template = _.template($('#productDetailTemplate').html());
-      this.Cadec = options.app;
       this.render();
 
       $('#details').empty().append(this.$el);
@@ -40,7 +40,7 @@ define([
 	        product : this.model
 	    });
 
-	    this.Cadec.globalCart.addToCart(cartItem);
+	    Cadec.globalCart.addToCart(cartItem);
     }
   });
 

@@ -2,12 +2,13 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'app',
   'collections/CartCollection', 
   'views/CartView', 
   'collections/ProductCollection',
   'views/ProductsView',
   'views/ProductDetailView'
-], function ( $, _, Backbone, CartCollection, CartView, 
+], function ( $, _, Backbone, Cadec, CartCollection, CartView, 
   ProductCollection, ProductsView, ProductDetailView ) {
 
   var ApplicationRouter = Backbone.Router.extend({
@@ -19,15 +20,12 @@ define([
 
     initialize : function( options ) {
       console.log('Application Router initialized...');
-  
       var self = this;
 
-      this.Cadec = options.app;
-      this.Cadec.globalCart = new CartCollection();
+      Cadec.globalCart = new CartCollection();
       
       new CartView({
-        collection : this.Cadec.globalCart, 
-        app : this.Cadec
+        collection : Cadec.globalCart
       });
 
       this.products = new ProductCollection();
@@ -55,13 +53,12 @@ define([
       this.products.any(function(product) {
         if (product.get('id') == id) {
 
-          if (self.Cadec.currentDetailView) {
-            self.Cadec.currentDetailView.remove();
+          if (Cadec.currentDetailView) {
+            Cadec.currentDetailView.remove();
           }
 
-          self.Cadec.currentDetailView = new ProductDetailView({
-            model : product,
-            app : self.Cadec
+          Cadec.currentDetailView = new ProductDetailView({
+            model : product
           });
           // stop looping
           return true;

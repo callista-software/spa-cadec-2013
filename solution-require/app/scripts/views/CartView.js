@@ -2,8 +2,9 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'app',
   'models/CartModel'
-], function ( $, _, Backbone, CartModel ) { 
+], function ( $, _, Backbone, Cadec, CartModel ) { 
 
   var CartView = Backbone.View.extend({
 
@@ -17,7 +18,6 @@ define([
   		console.log('cart view init');
 	  	this.$ul = $('ul', this.$el); // shortcut to the ul element 
     	this.render();
-      this.Cadec = options.app
     	this.listenTo(this.collection, 'add', this.onAdd, this);
 	    this.listenTo(this.collection, 'remove', this.onRemove, this);
 	    // if a model in the collection has changed, eg count
@@ -30,8 +30,7 @@ define([
     	this.$ul.empty();
   		this.collection.each(function (cartModel) {
   			var view = new CartItemView({
-  				model : cartModel, 
-          app : self.Cadec
+  				model : cartModel
   			});
   			self.$ul.append(view.el);
   		});
@@ -81,7 +80,6 @@ define([
 
   	initialize : function ( options ) {
 	   	this.template = _.template($('#cartTemplate').html());
-      this.Cadec = options.app;
       this.render();
     },
 
@@ -91,12 +89,12 @@ define([
 
   	add : function () {
 	    console.log('add!');
-	    this.Cadec.globalCart.addToCart(this.model);
+	    Cadec.globalCart.addToCart(this.model);
     }, 
 
   	remove : function () {
 	    console.log('remove!');
-	    this.Cadec.globalCart.removeFromCart(this.model);
+	    Cadec.globalCart.removeFromCart(this.model);
     }
   });
 

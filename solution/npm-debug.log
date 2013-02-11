@@ -1,0 +1,272 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'express' ]
+2 info using npm@1.1.33
+3 info using node@v0.8.1
+4 verbose config file /Users/kris/.npmrc
+5 verbose config file /usr/local/etc/npmrc
+6 verbose config file /usr/local/lib/node_modules/npm/npmrc
+7 verbose read json /Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/package.json
+8 verbose read json /Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/node_modules/express/package.json
+9 verbose read json /Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/package.json
+10 verbose cache add [ 'express', null ]
+11 silly cache add name=undefined spec="express" args=["express",null]
+12 verbose parsed url { pathname: 'express', path: 'express', href: 'express' }
+13 verbose lock express /Users/kris/.npm/f3c62de455962fbdacddf3843dee5914477682c1-express.lock
+14 verbose addNamed [ 'express', '' ]
+15 verbose addNamed [ null, '' ]
+16 verbose lock express@ /Users/kris/.npm/64a534c1e1915c52c54f5fdb40e1c3124c00c7af-express-.lock
+17 silly addNameRange { name: 'express', range: '', hasData: false }
+18 verbose url raw express
+19 verbose url resolving [ 'https://registry.npmjs.org/', './express' ]
+20 verbose url resolved https://registry.npmjs.org/express
+21 info retry registry request attempt 1 at 21:45:04
+22 verbose etag "64R9B89OWOAAH0AMRI5IROFPD"
+23 http GET https://registry.npmjs.org/express
+24 http 200 https://registry.npmjs.org/express
+25 silly registry.get cb [ 200,
+25 silly registry.get   { vary: 'Accept',
+25 silly registry.get     server: 'CouchDB/1.2.1 (Erlang OTP/R15B)',
+25 silly registry.get     etag: '"3FWRJBD0400YDASXKMX6BSOL0"',
+25 silly registry.get     date: 'Mon, 11 Feb 2013 20:43:06 GMT',
+25 silly registry.get     'content-type': 'application/json',
+25 silly registry.get     'content-length': '281631' } ]
+26 silly addNameRange number 2 { name: 'express', range: '', hasData: true }
+27 silly addNameRange versions [ 'express',
+27 silly addNameRange   [ '0.14.0',
+27 silly addNameRange     '0.14.1',
+27 silly addNameRange     '1.0.0beta',
+27 silly addNameRange     '1.0.0beta2',
+27 silly addNameRange     '1.0.0rc',
+27 silly addNameRange     '1.0.0rc2',
+27 silly addNameRange     '1.0.0rc3',
+27 silly addNameRange     '1.0.0rc4',
+27 silly addNameRange     '1.0.0',
+27 silly addNameRange     '1.0.1',
+27 silly addNameRange     '1.0.2',
+27 silly addNameRange     '1.0.3',
+27 silly addNameRange     '1.0.4',
+27 silly addNameRange     '1.0.5',
+27 silly addNameRange     '1.0.6',
+27 silly addNameRange     '1.0.7',
+27 silly addNameRange     '2.0.0beta',
+27 silly addNameRange     '1.0.8',
+27 silly addNameRange     '2.0.0beta2',
+27 silly addNameRange     '2.0.0beta3',
+27 silly addNameRange     '2.0.0rc',
+27 silly addNameRange     '2.0.0rc2',
+27 silly addNameRange     '2.0.0rc3',
+27 silly addNameRange     '2.0.0',
+27 silly addNameRange     '2.1.0',
+27 silly addNameRange     '2.1.1',
+27 silly addNameRange     '2.2.0',
+27 silly addNameRange     '2.2.1',
+27 silly addNameRange     '2.2.2',
+27 silly addNameRange     '2.3.0',
+27 silly addNameRange     '2.3.1',
+27 silly addNameRange     '2.3.2',
+27 silly addNameRange     '2.3.3',
+27 silly addNameRange     '2.3.4',
+27 silly addNameRange     '2.3.5',
+27 silly addNameRange     '2.3.6',
+27 silly addNameRange     '2.3.7',
+27 silly addNameRange     '2.3.8',
+27 silly addNameRange     '2.3.9',
+27 silly addNameRange     '2.3.10',
+27 silly addNameRange     '2.3.11',
+27 silly addNameRange     '2.3.12',
+27 silly addNameRange     '2.4.0',
+27 silly addNameRange     '2.4.1',
+27 silly addNameRange     '2.4.2',
+27 silly addNameRange     '2.4.3',
+27 silly addNameRange     '2.4.4',
+27 silly addNameRange     '2.4.5',
+27 silly addNameRange     '2.4.6',
+27 silly addNameRange     '2.4.7',
+27 silly addNameRange     '2.5.0',
+27 silly addNameRange     '2.5.1',
+27 silly addNameRange     '2.5.2',
+27 silly addNameRange     '2.5.3',
+27 silly addNameRange     '2.5.4',
+27 silly addNameRange     '2.5.5',
+27 silly addNameRange     '2.5.6',
+27 silly addNameRange     '2.5.7',
+27 silly addNameRange     '2.5.8',
+27 silly addNameRange     '2.5.9',
+27 silly addNameRange     '3.0.0alpha1',
+27 silly addNameRange     '3.0.0alpha2',
+27 silly addNameRange     '3.0.0alpha3',
+27 silly addNameRange     '3.0.0alpha4',
+27 silly addNameRange     '3.0.0alpha5',
+27 silly addNameRange     '3.0.0beta1',
+27 silly addNameRange     '3.0.0beta2',
+27 silly addNameRange     '3.0.0beta3',
+27 silly addNameRange     '2.5.10',
+27 silly addNameRange     '3.0.0beta4',
+27 silly addNameRange     '2.5.11',
+27 silly addNameRange     '3.0.0beta6',
+27 silly addNameRange     '3.0.0beta7',
+27 silly addNameRange     '3.0.0rc1',
+27 silly addNameRange     '3.0.0rc2',
+27 silly addNameRange     '3.0.0rc3',
+27 silly addNameRange     '3.0.0rc4',
+27 silly addNameRange     '3.0.0rc5',
+27 silly addNameRange     '3.0.0',
+27 silly addNameRange     '3.0.1',
+27 silly addNameRange     '3.0.2',
+27 silly addNameRange     '3.0.3',
+27 silly addNameRange     '3.0.4',
+27 silly addNameRange     '3.0.5',
+27 silly addNameRange     '3.0.6',
+27 silly addNameRange     '3.1.0' ] ]
+28 verbose addNamed [ 'express', '3.1.0' ]
+29 verbose addNamed [ '3.1.0', '3.1.0' ]
+30 verbose lock express@3.1.0 /Users/kris/.npm/0557bc2a28ff785c1c27266866875b55a913e25a-express-3-1-0.lock
+31 verbose lock https://registry.npmjs.org/express/-/express-3.1.0.tgz /Users/kris/.npm/4542da4e5bd7688e53080b8c709416f344450be9-https-registry-npmjs-org-express-express-3-1-0-tgz.lock
+32 verbose addRemoteTarball [ 'https://registry.npmjs.org/express/-/express-3.1.0.tgz',
+32 verbose addRemoteTarball   'f869b2d92320f5c3dd496c172e06f02b6ad43310' ]
+33 info retry fetch attempt 1 at 21:45:07
+34 verbose fetch to= /var/folders/zr/7mltbq5j7z93qdxb_pqy7pkc0000gn/T/npm-58091/1360615507538-0.972223897697404/tmp.tgz
+35 http GET https://registry.npmjs.org/express/-/express-3.1.0.tgz
+36 http 200 https://registry.npmjs.org/express/-/express-3.1.0.tgz
+37 silly shasum updated bytes 35342
+38 info shasum f869b2d92320f5c3dd496c172e06f02b6ad43310
+38 info shasum /var/folders/zr/7mltbq5j7z93qdxb_pqy7pkc0000gn/T/npm-58091/1360615507538-0.972223897697404/tmp.tgz
+39 verbose tar unpack /var/folders/zr/7mltbq5j7z93qdxb_pqy7pkc0000gn/T/npm-58091/1360615507538-0.972223897697404/tmp.tgz
+40 silly gunzTarPerm modes [ '755', '644' ]
+41 silly gunzTarPerm extractEntry package.json
+42 silly gunzTarPerm extractEntry .npmignore
+43 silly gunzTarPerm extractEntry LICENSE
+44 silly gunzTarPerm extractEntry client.js
+45 silly gunzTarPerm extractEntry index.js
+46 silly gunzTarPerm extractEntry test.js
+47 silly gunzTarPerm extractEntry .travis.yml
+48 silly gunzTarPerm extractEntry History.md
+49 silly gunzTarPerm extractEntry Makefile
+50 silly gunzTarPerm extractEntry bin/express
+51 silly gunzTarPerm extractEntry Readme.md
+52 silly gunzTarPerm extractEntry lib/application.js
+53 silly gunzTarPerm extractEntry lib/express.js
+54 silly gunzTarPerm extractEntry lib/middleware.js
+55 silly gunzTarPerm extractEntry lib/request.js
+56 silly gunzTarPerm extractEntry lib/response.js
+57 silly gunzTarPerm extractEntry lib/utils.js
+58 silly gunzTarPerm extractEntry lib/view.js
+59 silly gunzTarPerm extractEntry lib/router/index.js
+60 silly gunzTarPerm extractEntry lib/router/route.js
+61 verbose read json /var/folders/zr/7mltbq5j7z93qdxb_pqy7pkc0000gn/T/npm-58091/1360615507538-0.972223897697404/package/package.json
+62 verbose from cache /var/folders/zr/7mltbq5j7z93qdxb_pqy7pkc0000gn/T/npm-58091/1360615507538-0.972223897697404/package/package.json
+63 verbose tar pack [ '/Users/kris/.npm/express/3.1.0/package.tgz',
+63 verbose tar pack   '/var/folders/zr/7mltbq5j7z93qdxb_pqy7pkc0000gn/T/npm-58091/1360615507538-0.972223897697404/package' ]
+64 verbose tarball /Users/kris/.npm/express/3.1.0/package.tgz
+65 verbose folder /var/folders/zr/7mltbq5j7z93qdxb_pqy7pkc0000gn/T/npm-58091/1360615507538-0.972223897697404/package
+66 verbose tar unpack /Users/kris/.npm/express/3.1.0/package.tgz
+67 silly gunzTarPerm modes [ '755', '644' ]
+68 silly gunzTarPerm extractEntry package.json
+69 silly gunzTarPerm extractEntry .npmignore
+70 silly gunzTarPerm extractEntry LICENSE
+71 silly gunzTarPerm extractEntry client.js
+72 silly gunzTarPerm extractEntry index.js
+73 silly gunzTarPerm extractEntry test.js
+74 silly gunzTarPerm extractEntry .travis.yml
+75 silly gunzTarPerm extractEntry History.md
+76 silly gunzTarPerm extractEntry Makefile
+77 silly gunzTarPerm extractEntry bin/express
+78 silly gunzTarPerm extractEntry Readme.md
+79 silly gunzTarPerm extractEntry lib/application.js
+80 silly gunzTarPerm extractEntry lib/express.js
+81 silly gunzTarPerm extractEntry lib/middleware.js
+82 silly gunzTarPerm extractEntry lib/request.js
+83 silly gunzTarPerm extractEntry lib/response.js
+84 silly gunzTarPerm extractEntry lib/utils.js
+85 silly gunzTarPerm extractEntry lib/view.js
+86 silly gunzTarPerm extractEntry lib/router/index.js
+87 silly gunzTarPerm extractEntry lib/router/route.js
+88 verbose read json /Users/kris/.npm/express/3.1.0/package/package.json
+89 silly shasum updated bytes 35342
+90 info shasum f869b2d92320f5c3dd496c172e06f02b6ad43310
+90 info shasum /Users/kris/.npm/express/3.1.0/package.tgz
+91 verbose from cache /Users/kris/.npm/express/3.1.0/package/package.json
+92 verbose chmod /Users/kris/.npm/express/3.1.0/package.tgz 644
+93 verbose chown /Users/kris/.npm/express/3.1.0/package.tgz [ 501, 20 ]
+94 silly resolved [ { name: 'express',
+94 silly resolved     description: 'Sinatra inspired web development framework',
+94 silly resolved     version: '3.1.0',
+94 silly resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+94 silly resolved     contributors: [ [Object], [Object], [Object], [Object] ],
+94 silly resolved     dependencies:
+94 silly resolved      { connect: '2.7.2',
+94 silly resolved        commander: '0.6.1',
+94 silly resolved        'range-parser': '0.0.4',
+94 silly resolved        mkdirp: '0.3.3',
+94 silly resolved        cookie: '0.0.5',
+94 silly resolved        'buffer-crc32': '0.1.1',
+94 silly resolved        fresh: '0.1.0',
+94 silly resolved        methods: '0.0.1',
+94 silly resolved        send: '0.1.0',
+94 silly resolved        'cookie-signature': '0.0.1',
+94 silly resolved        debug: '*' },
+94 silly resolved     devDependencies:
+94 silly resolved      { ejs: '*',
+94 silly resolved        mocha: '*',
+94 silly resolved        jade: '*',
+94 silly resolved        hjs: '*',
+94 silly resolved        stylus: '*',
+94 silly resolved        should: '*',
+94 silly resolved        'connect-redis': '*',
+94 silly resolved        'github-flavored-markdown': '*',
+94 silly resolved        supertest: '0.0.1' },
+94 silly resolved     keywords:
+94 silly resolved      [ 'express',
+94 silly resolved        'framework',
+94 silly resolved        'sinatra',
+94 silly resolved        'web',
+94 silly resolved        'rest',
+94 silly resolved        'restful',
+94 silly resolved        'router',
+94 silly resolved        'app',
+94 silly resolved        'api' ],
+94 silly resolved     repository: { type: 'git', url: 'git://github.com/visionmedia/express' },
+94 silly resolved     main: 'index',
+94 silly resolved     bin: { express: './bin/express' },
+94 silly resolved     scripts: { prepublish: 'npm prune', test: 'make test' },
+94 silly resolved     engines: { node: '*' },
+94 silly resolved     _id: 'express@3.1.0',
+94 silly resolved     dist: { shasum: 'f869b2d92320f5c3dd496c172e06f02b6ad43310' },
+94 silly resolved     _from: 'express' } ]
+95 info install express@3.1.0 into /Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013
+96 info installOne express@3.1.0
+97 verbose from cache /Users/kris/.npm/express/3.1.0/package/package.json
+98 info /Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/node_modules/express unbuild
+99 verbose from cache /Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/node_modules/express/package.json
+100 info preuninstall express@3.0.3
+101 info uninstall express@3.0.3
+102 verbose true,/Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/node_modules,/Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/node_modules unbuild express@3.0.3
+103 verbose /Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/node_modules/.bin,[object Object] binRoot
+104 info /Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/node_modules/express unbuild
+105 verbose from cache /Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/node_modules/express/package.json
+106 info preuninstall express@3.0.3
+107 info uninstall express@3.0.3
+108 verbose true,/Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/node_modules,/Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/node_modules unbuild express@3.0.3
+109 verbose /Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/node_modules/.bin,[object Object] binRoot
+110 error error rolling back Error: EACCES, unlink '/Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/node_modules/.bin/express'
+110 error error rolling back  express@3.1.0 { [Error: EACCES, unlink '/Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/node_modules/.bin/express']
+110 error error rolling back   errno: 3,
+110 error error rolling back   code: 'EACCES',
+110 error error rolling back   path: '/Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/node_modules/.bin/express' }
+111 error Error: EACCES, unlink '/Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/node_modules/.bin/express'
+111 error  { [Error: EACCES, unlink '/Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/node_modules/.bin/express']
+111 error   errno: 3,
+111 error   code: 'EACCES',
+111 error   path: '/Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/node_modules/.bin/express' }
+112 error Please try running this command again as root/Administrator.
+113 error System Darwin 12.2.1
+114 error command "node" "/usr/local/bin/npm" "install" "express"
+115 error cwd /Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/part4
+116 error node -v v0.8.1
+117 error npm -v 1.1.33
+118 error path /Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/node_modules/.bin/express
+119 error code EACCES
+120 error message EACCES, unlink '/Users/kris/dev/proj/cadec-2013-backbone/spa-cadec-2013/node_modules/.bin/express'
+121 error errno 3
+122 error 3 errno
+123 verbose exit [ 3, true ]

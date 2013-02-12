@@ -22,15 +22,23 @@ define([
       this.render();
 
       $('#details').empty().append(this.$el);
-      this.listenTo(this.model, 'change', this.render, this);
+      this.listenTo(this.model, 'change:inStock', this.updateInStock, this);
     }, 
 
     render : function () {
       this.$el.empty().append(this.template(this.model.toJSON()));
-      if (this.model.get('inStock') < 1) {
-        // find the addButton in this dom-tree and disable it
-        $('#addButton', this.$el).attr('disabled','true');
-      }
+      this.updateAddButton();
+    },
+
+    updateAddButton : function () {
+      var disabled = (this.model.get('inStock') < 1);
+      // find the addButton in this dom-tree and disable it
+      $('#addButton', this.$el).prop('disabled', disabled);
+    }, 
+
+    updateInStock : function ( event ) {
+      $('#inStock').html(this.model.get('inStock'));
+      this.updateAddButton();
     },
 
   	addToCart : function () {

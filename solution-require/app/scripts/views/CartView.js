@@ -85,17 +85,29 @@ define([
 
     render : function () {
   		this.$el.html(this.template(this.model.toJSON()));
+      this.updateButtons();
   	}, 
 
   	add : function () {
 	    console.log('add!');
 	    Cadec.globalCart.addToCart(this.model);
+      //this.updateButtons();
     }, 
 
   	remove : function () {
 	    console.log('remove!');
 	    Cadec.globalCart.removeFromCart(this.model);
+      //this.updateButtons();
+    }, 
+ 
+    updateButtons : function () {
+      var addDisabled, minusDisables;
+      addDisabled = (this.model.product.get('inStock') < 1);
+      $('.icon-plus-sign', this.$el).prop('disabled', addDisabled);
+      minusDisabled = (this.model.get('count') < 1);
+      $('.icon-minus-sign', this.$el).prop('disabled', minusDisabled);
     }
+
   });
 
   return CartView;

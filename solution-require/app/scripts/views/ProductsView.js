@@ -11,7 +11,6 @@ define([
     initialize : function () {
       console.log('Product Collection view init');
       this.render();
-      this.collection.on('change', this.render, this);
     }, 
 
   	render : function () {
@@ -33,6 +32,7 @@ define([
 
     initialize : function () {
       this.template = _.template($('#productsTemplate').html());
+      this.listenTo(this.model, 'change', this.render, this);
       this.render();    
     },
 

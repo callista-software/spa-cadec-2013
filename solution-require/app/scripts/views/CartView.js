@@ -91,21 +91,24 @@ define([
   	add : function () {
 	    console.log('add!');
 	    Cadec.globalCart.addToCart(this.model);
-      //this.updateButtons();
     }, 
 
   	remove : function () {
 	    console.log('remove!');
 	    Cadec.globalCart.removeFromCart(this.model);
-      //this.updateButtons();
     }, 
  
     updateButtons : function () {
-      var addDisabled, minusDisables;
-      addDisabled = (this.model.product.get('inStock') < 1);
-      $('.icon-plus-sign', this.$el).prop('disabled', addDisabled);
-      minusDisabled = (this.model.get('count') < 1);
-      $('.icon-minus-sign', this.$el).prop('disabled', minusDisabled);
+      if (this.model.product.get('inStock') < 1) {
+        $('.icon-plus-sign', this.$el).hide();
+      } else {
+        $('.icon-plus-sign', this.$el).show();
+      }
+      if (this.model.get('count') < 1) {
+        $('.icon-minus-sign', this.$el).hide();
+      } else {
+        $('.icon-minus-sign', this.$el).show();
+      }
     }
 
   });

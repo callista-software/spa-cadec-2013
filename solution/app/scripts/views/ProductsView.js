@@ -24,6 +24,9 @@ Cadec.Views.ItemView = Backbone.View.extend({
 
   tagName : 'li',
   className : 'productItem',
+  events : {
+    'click' : 'showDetails'
+  },
 
   initialize : function () {
     this.template = _.template($('#productsTemplate').html());
@@ -32,5 +35,10 @@ Cadec.Views.ItemView = Backbone.View.extend({
 
   render : function () {
     this.$el.html(this.template(this.model.toJSON()));
+  }, 
+
+  showDetails : function () {
+    console.log('click id '+this.model.id);
+    Backbone.history.navigate('products/'+this.model.id, { trigger : true });
   }
 });

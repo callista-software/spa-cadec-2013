@@ -32,32 +32,7 @@
             </div>
         </div>
 
-        <script src="scripts/vendor/require.js" data-main="scripts/config.js"></script>
-
-        <script type="text/template" id="productDetailTemplate">
-            <h3><%= name %></h3>
-            <div><img src="images/fruits/<%= imgSrc %>"/></div>
-            <div>
-                <h4>Beskrivning</h4>
-                <%= description %>
-                <h5>I lager: <span id="inStock"><%= inStock %></span>
-            </div>
-            <button id="addButton" class="btn">Lägg i korgen</button>
-        </script>
-        <script type="text/template" id="productsTemplate">
-            <div class="span4" class="fruitItem ">
-                <div style="align:center;"><img src="images/fruits/mini-<%= imgSrc %>"/></div>
-                <div>
-                    <span style="font-weight: bold;"><%= name %></span><br/>
-                    I lager: <%= inStock %>
-                    <a href="#/products/<%= id %>">Visa produkt</a>
-                </div>
-            </div>
-        </script>
-
-         <script type="text/template" id="cartTemplate">
-            <%= name %>, <%= count %><i class="icon-plus-sign pull-right"></i><i class="icon-minus-sign pull-right" id="remove"></i>
-        </script>
+        <script src="scripts/vendor/require/require.js" data-main="scripts/config.js"></script>
 
     </body>
 </html>

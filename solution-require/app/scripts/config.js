@@ -19,7 +19,8 @@ require.config({
   paths : {
     'jquery'     : 'vendor/jquery.min',
     'underscore' : 'vendor/lodash.min',
-    'backbone'   : 'vendor/backbone'
+    'backbone'   : 'vendor/backbone',
+    'text'       : 'vendor/require/text'
   }
 });
 

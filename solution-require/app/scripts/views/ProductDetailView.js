@@ -3,8 +3,9 @@ define([
   'underscore',
   'backbone',
   'app',
+  'text!templates/ProductDetailTemplate.html'
   'models/CartModel'
-], function ( $, _, Backbone, Cadec, CartModel ) { 
+], function ( $, _, Backbone, Cadec, ProductDetailTemplate, CartModel ) { 
 
   var ProductDetailView = Backbone.View.extend({
 
@@ -18,7 +19,7 @@ define([
 
     initialize : function ( options ) {
       console.log('details init');
-      this.template = _.template($('#productDetailTemplate').html());
+      this.template = _.template(ProductDetailTemplate);
       this.render();
 
       $('#details').empty().append(this.$el);

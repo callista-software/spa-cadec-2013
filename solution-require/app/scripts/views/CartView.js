@@ -3,8 +3,9 @@ define([
   'underscore',
   'backbone',
   'app',
+  'text!templates/CartTemplate.html',
   'models/CartModel'
-], function ( $, _, Backbone, Cadec, CartModel ) { 
+], function ( $, _, Backbone, Cadec, CartTemplate, CartModel ) { 
 
   var CartView = Backbone.View.extend({
 
@@ -79,7 +80,7 @@ define([
     },
 
   	initialize : function ( options ) {
-	   	this.template = _.template($('#cartTemplate').html());
+	   	this.template = _.template(CartTemplate);
       this.render();
     },
 

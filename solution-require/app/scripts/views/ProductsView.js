@@ -1,8 +1,9 @@
 define([
   'jquery',
   'underscore',
-  'backbone'
-], function ( $, _, Backbone ) { 
+  'backbone', 
+  'text!templates/ProductsTemplate.html'
+], function ( $, _, Backbone, ProductsTemplate ) { 
 
   var ProductsView = Backbone.View.extend({
 
@@ -31,7 +32,7 @@ define([
     className : 'productItem',
 
     initialize : function () {
-      this.template = _.template($('#productsTemplate').html());
+      this.template = _.template(ProductsTemplate);
       this.listenTo(this.model, 'change', this.render, this);
       this.render();    
     },

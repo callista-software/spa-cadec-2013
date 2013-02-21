@@ -3,7 +3,7 @@ define([
   'underscore',
   'backbone',
   'app',
-  'text!templates/ProductDetailTemplate.html'
+  'text!templates/ProductDetailTemplate.html',
   'models/CartModel'
 ], function ( $, _, Backbone, Cadec, ProductDetailTemplate, CartModel ) { 
 

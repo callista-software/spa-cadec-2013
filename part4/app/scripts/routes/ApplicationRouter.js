@@ -1,53 +1,43 @@
 Cadec.Routers.ApplicationRouter = Backbone.Router.extend({
+    
+    routes : {
+        'products/:id' : 'viewProduct'
+    },
 
     initialize : function() {
         console.log('Application Router initialized...');
-    
-        var self = this;
+        this.listProducts();
+        Cadec.globalCart = new Cadec.Collections.CartCollection();
 
-        Cadec.globalCart = new Cadec.Collections.Cart();
-        
         new Cadec.Views.CartView({
             collection : Cadec.globalCart
         });
+    },
 
-        this.products = new Cadec.Collections.ProductCollection();
-        this.products.fetch({
-            async : false,
+    listProducts : function () {
+        var products = new Cadec.Collections.ProductCollection();
+        console.log('List products');
+        products.fetch({
             success : function() {
-                self.listProducts();
+                new Cadec.Views.ProductsView({
+                    collection : products
+                });
+            },
+            error : function() {
+                console.log('Failed to fetch products');
             }
         });
-
-    },
-    
-    listProducts : function () {
-        if (this.products) {
-            new Cadec.Views.ProductsView({
-                collection : this.products
-            });
-        }
     },
 
     viewProduct : function(id) {
-        var self = this;
-
         console.log('View product %s', id);
-        this.products.any(function(product) {
-            if (product.get('id') == id) {
-
-                if (self.currentDetailView) {
-                    self.currentDetailView.remove();
-                }
-
-                self.currentDetailView = new Cadec.Views.ProductDetailView({model : product});
-                return true;
+        var product = new Cadec.Models.ProductModel({id : id});
+        product.fetch({
+            success : function(model) {
+                new Cadec.Views.ProductDetailsView({
+                   model : model
+                });
             }
         });
-    },
-
-    routes : {
-        'products' : 'listProducts',
-        'products/:id' : 'viewProduct'
     }
 });

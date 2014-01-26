@@ -1,36 +1,22 @@
 Cadec.Views.ProductsView = Backbone.View.extend({
 
-  el : '#products', // samma som id om dom-elementet redan finns i dokumentet
+    // attacha till dom-elementet #products som redan finns i dokumentet
+    el : '#products', 
 
-  initialize : function () {
-    console.log('Product Collection view init');
-    this.render();
-    this.collection.on('change', this.render, this);
-  }, 
+    initialize : function () {
+        console.log('product collection view init');
+        this.render();
+        this.listenTo(this.collection, 'change', this.render);
+    }, 
 
-	render : function () {
-    	var self = this;
-    	this.$el.empty();
-    	this.collection.each(function (product) {
-    		var view = new Cadec.Views.ItemView({
-        		model : product
-        	});
-        	self.$el.append(view.el);
-    	});
-	}
-});
+    render : function () {
+        this.$el.empty();
+        this.collection.each(function (product) {
+            var view = new Cadec.Views.ProductItemView({
+                model : product
+            })
+            this.$el.append(view.el);
+        }, this);
+    }
 
-Cadec.Views.ItemView = Backbone.View.extend({
-
-  tagName : 'li',
-  className : 'productItem',
-
-  initialize : function () {
-    this.template = _.template($('#productsTemplate').html());
-    this.render();    
-  },
-
-  render : function () {
-    this.$el.html(this.template(this.model.toJSON()));
-  }
 });

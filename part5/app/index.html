@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <title></title>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width"/>
+        <link rel="stylesheet" href="styles/bootstrap.min.css"/>
+        <link rel="stylesheet" href="styles/main.css" />
+
+    </head>
+    <body>
+        <h1>Välkommen till Cadec tutorial!</h1>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span5">
+                    <h2>Våra frukter</h2>
+                    <ul id="products">
+                    </ul>
+                </div>
+                <div id="details" class="span3"></div>
+                <div id="cart" class="span4">
+                    <h2>Din fruktkorg</h2>
+                    <ul></ul>
+                    <button id="order" class="btn pull-right">Till kassan</button>
+                </div>
+            </div>
+        </div>
+        <script src="scripts/vendor/jquery.min.js"></script>
+        <script src="scripts/vendor/lodash.min.js"></script>
+        <script src="scripts/vendor/backbone.js"></script>
+
+        <script src="scripts/main.js"></script>
+        <script src="scripts/models/CartModel.js"></script>
+        <script src="scripts/collections/CartCollection.js"></script>
+        <script src="scripts/views/CartView.js"></script>
+        <script src="scripts/views/CartItemView.js"></script>
+        <script src="scripts/routes/ApplicationRouter.js"></script>
+        <script src="scripts/models/ProductModel.js"></script>
+        <script src="scripts/collections/ProductCollection.js"></script>
+        <script src="scripts/views/ProductsView.js"></script>
+        <script src="scripts/views/ProductItemView.js"></script>
+        <script src="scripts/views/ProductDetailsView.js"></script>
+
+        <script type="text/template" id="productDetailsTemplate">
+            <h3><%= name %></h3>
+            <div><img src="images/fruits/<%= imgSrc %>"/></div>
+            <div>
+                <h4>Beskrivning</h4>
+                <%= description %>
+                <h5>I lager: <%= inStock %>
+            </div>
+            <button id="addButton" class="btn">Lägg i korgen</button>
+        </script>
+        <script type="text/template" id="productItemTemplate">
+            <a href="#products/<%= id %>">
+                <div class="span4" class="fruitItem ">
+                    <div style="align:center;"><img src="images/fruits/mini-<%= imgSrc %>"/></div>
+                    <div>
+                        <span style="font-weight: bold;"><%= name %></span><br/>
+                        I lager: <%= inStock %><br/>
+                        <i>Visa produkt</i>
+                    </div>
+                </div>
+            </a>
+        </script>
+        <script type="text/template" id="cartTemplate">
+            <%= name %>, <%= count %>
+            <i class="icon-plus-sign pull-right"></i>
+            <i class="icon-minus-sign pull-right" id="remove"></i>
+        </script>
+    </body>
+</html>

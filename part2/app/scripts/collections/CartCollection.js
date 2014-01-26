@@ -1,10 +1,10 @@
-Cadec.Collections.Cart = Backbone.Collection.extend({
+Cadec.Collections.CartCollection = Backbone.Collection.extend({
 
-  	model : Cadec.Models.CartModel,
-  	url : '/api/order',
+    model : Cadec.Models.CartModel,
+    url : '/api/order',
 
     initialize: function() {
-    	console.log("Cart collection init");
+        console.log("Cart collection init");
     }
 
 });

@@ -1,9 +1,7 @@
 Cadec.Models.ProductModel = Backbone.Model.extend({
 
-    urlRoot : '/api/products',
-    
+    urlRoot: '/api/products',
     defaults : {
-        'id'          : '',
         'name'        : '',
         'description' : '',
         'inStock'     : '0',
@@ -12,10 +10,5 @@ Cadec.Models.ProductModel = Backbone.Model.extend({
 
     initialize : function (options) {
         console.log('product init');
-    },
-    validate: function( attributes ){
-        if( attributes.name === 'Lemon' ){
-            return 'Lemon? Noooo!';
-        }
     }
 });

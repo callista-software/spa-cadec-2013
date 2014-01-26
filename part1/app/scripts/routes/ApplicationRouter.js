@@ -5,11 +5,10 @@ Cadec.Routers.ApplicationRouter = Backbone.Router.extend({
     },
 
     listProducts : function () {
-        console.log('list products');
         var products = new Cadec.Collections.ProductCollection();
+        console.log('list products');
         products.fetch({
             success : function() {
-                console.log('Succeeded in fetching products');
                 new Cadec.Views.ProductsView({
                     collection : products
                 });
@@ -18,5 +17,4 @@ Cadec.Routers.ApplicationRouter = Backbone.Router.extend({
                 console.log('Failed to fetch products');
             }
         });
-    }
-});
+    }});

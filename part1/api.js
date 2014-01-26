@@ -8,7 +8,7 @@ var SpaApi = function(express_app) {
 }
 
 SpaApi.prototype.start = function() {
-    var that = this;
+    var self = this;
 
     this.products = [{
         'id' : 0,
@@ -43,59 +43,65 @@ SpaApi.prototype.start = function() {
     }];
 
     this.app.get('/api/products', function(req, res) {
-        that.response(res, JSON.stringify(that.products));
+        self.response(res, JSON.stringify(self.products));
     });
 
     this.app.get('/api/products/:id', function(req, res) {
         console.log('Get product with id %s', req.params.id);
-        that.response(res, JSON.stringify(that.products[req.params.id]));
+        self.response(res, JSON.stringify(self.products[req.params.id]));
     });
 
     this.app.put('/api/products', function(req, res) {
+        var fruit;
         console.log('PUT new data: %s', req.body.name);
-        var fruit = req.body;
-        fruit.id = that.products.length;
-        that.products.push(fruit);
-        that.response(res, JSON.stringify(fruit));
+        fruit = req.body;
+        fruit.id = self.products.length;
+        self.products.push(fruit);
+        self.response(res, JSON.stringify(fruit));
     });
 
     this.app.put('/api/products/:id', function(req, res) {
-        console.log('PUT data: [%s]:%s', req.params.id, req.body.name);
-        var fruit = that.products[req.params.id];
+        var fruit;
+        console.log('PUT, save product: [%s]:%s', req.params.id, req.body.name);
+        fruit = self.products[req.params.id];
         fruit.name = req.body.name;
         fruit.description = req.body.description;
         fruit.inStock = req.body.inStock;
         fruit.imgSrc = req.body.imgSrc;
-        that.response(res, JSON.stringify(fruit));
+        self.response(res, JSON.stringify(fruit));
     });
 
     this.app.post('/api/products', function(req, res) {
-        console.log('Save product', req.params.id);
-        if(req.params.id<that.products.length) throw new Error('Product with id %s already exists', req.params.id);
-        that.response(res, JSON.stringify(that.products[0]));
-        //that.products.push(req.params.id);
-        //that.response(res, JSON.stringify(that.products[req.params.id]));
+        var fruit;
+        if (req.params.id < self.products.length) {
+            throw new Error('Product with id %s already exists', req.params.id);
+        }
+        fruit = req.body;
+        console.log('POST, Save new product', fruit.name);
+        fruit.id = self.products.length;
+        self.products.push(fruit);
+        self.response(res, JSON.stringify(fruit));
     });
 
     this.app.get('/api/carts/:id', function(req, res) {
         console.log('Get cart with id %s', req.params.id);
-        that.response(res, 'Get cart');
+        self.response(res, 'Get cart');
     });
     
     this.app.post('/api/carts/:id/items', function(req, res) {
         console.log('Adding item to cart (%s)', req.params.id);
-        that.response(res, 'Adding cart item');
+        self.response(res, 'Adding cart item');
     });
     
     this.app.delete('/api/cart/:id/items/:product_id', function(req, res) {
         console.log('Removing item (%s) from cart (%s)', req.params.product_id, req.params.id);
-        that.response(res, 'Removed item cart');
+        self.response(res, 'Removed item cart');
     });
 
    this.app.post('/api/order', function(req, res) {
         console.log('Placing order');
         console.log(req.body);
-        that.response(res, '');
+        self.response(res, '{ msg : "Order confirmed" }');
     });
 }
 

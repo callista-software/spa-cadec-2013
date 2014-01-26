@@ -1,8 +1,6 @@
 Cadec.Collections.ProductCollection = Backbone.Collection.extend({
-
-	url : '/api/products',
-	
     model : Cadec.Models.ProductModel,
+    url : '/api/products',
 
     initialize: function(){
           console.log("Init ProductCollection");

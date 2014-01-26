@@ -15,9 +15,7 @@
     </head>
     <body>
         <h1>Välkommen till Cadec tutorial!</h1>
-
         <ul id="products"></ul>
-
         <script src="scripts/vendor/jquery.min.js"></script>
         <script src="scripts/vendor/lodash.min.js"></script>
         <script src="scripts/vendor/backbone.js"></script>
@@ -27,13 +25,13 @@
         <script src="scripts/models/ProductModel.js"></script>
         <script src="scripts/collections/ProductCollection.js"></script>
         <script src="scripts/views/ProductsView.js"></script>
-       
-        <script type="text/template" id="productsTemplate">
+        <script src="scripts/views/ProductItemView.js"></script>
+
+        <script type="text/template" id="productItemTemplate">
             <div class="span4" class="fruitItem ">
                 <div style="align:center;"><img src="images/fruits/mini-<%= imgSrc %>"/></div>
-                <div><span style="font-weight: bold;"><%= name %></span><br/>I lager: <%= inStock %></div>
+                <div><%= name %>,<br/><%= description %><br/>I lager: <%= inStock %></div>
             </div>
         </script>
-
     </body>
 </html>

@@ -1,6 +1,6 @@
-Cadec.Views.ProductDetailView = Backbone.View.extend({
+Cadec.Views.ProductDetailsView = Backbone.View.extend({
 
-    el : '#details', 
+    id : 'detailsView', 
 
     events : {
         'click #addButton' : 'addToCart'
@@ -8,10 +8,10 @@ Cadec.Views.ProductDetailView = Backbone.View.extend({
 
     initialize : function () {
         console.log('details init');
-        this.template = _.template($('#productDetailTemplate').html());
+        this.template = _.template($('#productDetailsTemplate').html());
         this.render();
         this.listenTo(this.model, 'change', this.render);
-    }, 
+    },
 
     render : function () {
         this.$el.empty().append(this.template(this.model.toJSON()));
@@ -23,7 +23,7 @@ Cadec.Views.ProductDetailView = Backbone.View.extend({
 
     addToCart : function () {
         console.log('add to cart! %s', this.model.toJSON());
-        // create a new CartModel to put in the cart
+        // skapa en ny CartModel att lägga i cart
         var cartItem = new Cadec.Models.CartModel({
             product : this.model
         });

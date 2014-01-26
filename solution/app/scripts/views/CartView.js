@@ -1,93 +1,65 @@
 Cadec.Views.CartView = Backbone.View.extend({
 
-	el : '#cart', // samma som id om dom-elementet redan finns i dokumentet
+    // attacha till dom-elementet #cart som redan finns i dokumentet
+    el : '#cart', 
 
-	initialize : function () {
-  		console.log('cart view init');
-	  	this.$ul = $('ul', this.$el); // shortcut to the ul element 
-    	this.render();
-    	this.listenTo(this.collection, 'add', this.onAdd, this);
-	    this.listenTo(this.collection, 'remove', this.onRemove, this);
-	    // if a model in the collection has changed, eg count
-	    this.listenTo(this.collection, 'change', this.onChange, this); 
-  	},
+    events : {
+        'click #order' : 'order'
+    },
 
-  	render : function () {
-  		var self = this;
-    	// clear the cart before new render
-    	this.$ul.empty();
-  		this.collection.each(function (cartModel) {
-			var view = new Cadec.Views.CartItemView({
-				model : cartModel
-			});
-			self.$ul.append(view.el);
-		});
-  	}, 
+    initialize : function () {
+        console.log('cart view init');
+        this.$ul = $('ul', this.$el); // genväg till ul-elementet 
+        this.render();
+        this.listenTo(this.collection, 'add', this.onAdd);
+        this.listenTo(this.collection, 'remove', this.onRemove);
+        // if a model in the collection has changed, eg count
+        this.listenTo(this.collection, 'change', this.onChange); 
+    },
 
-	onAdd : function() {
-	  console.log('add event');
-	  this.render();
-	},
+    render : function () {
+        // clear the cart before new render
+        this.$ul.empty();
+        this.collection.each(function (cartModel) {
+            var view = new Cadec.Views.CartItemView({
+                model : cartModel
+            });
+            this.$ul.append(view.el);
+        }, this);
+    },
 
-	onRemove : function() {
-	  console.log('remove event');
-	  this.render();
-	},
+    onAdd : function() {
+        console.log('add event');
+        this.render();
+    },
 
-	onChange : function() {
-	  console.log('change event');
-	  this.render();
-	},
+    onRemove : function() {
+        console.log('remove event');
+        this.render();
+    },
 
-  events : {
-    'click #order' : 'order'
-  },
+    onChange : function() {
+        console.log('change event');
+        this.render();
+    },
 
-  order : function () {
-      var self = this;
-      console.log('Order!');
-      this.collection.sync('create', this.collection, {
-          success : function (model, response, options) {
-              console.log('Order sent');
-              self.collection.reset();
-              self.render();
-          }, 
-          error : function (model, xhr, options) {
-              console.log('Failed to send order: ' + xhr.responseText);
-          }
-      });
-  }
+   order : function () {
+        var self = this;
+        console.log('Order!');
+        this.collection.sync('create', this.collection, {
+            success : function (model, response, options) {
+                self.orderSent();
+            }, 
+            error : function (model, xhr, options) {
+                console.log('Failed to send order: ' + xhr.responseText);
+            }
+        });
+    },
 
-});
-
-Cadec.Views.CartItemView = Backbone.View.extend({
-
-	tagName : 'li',
-	className : 'cartItem',
-
-	initialize : function () {
-		this.template = _.template($('#cartTemplate').html());
- 		this.render();		
-	},
-
-	render : function () {
-  		this.$el.html(this.template(this.model.toJSON()));
-  	}, 
-
-	events : {
-	    'click .icon-plus-sign' : 'add',
-	    'click .icon-minus-sign' : 'remove'
-	},
-
-	add : function () {
-	    console.log('add!');
-	    Cadec.globalCart.addToCart(this.model);
-	}, 
-
-	remove : function () {
-	    console.log('remove!');
-	    Cadec.globalCart.removeFromCart(this.model);
-	}
-
+    orderSent : function () {
+        console.log('Order sent');
+        this.collection.reset();
+        this.render();
+    }
 
 });
